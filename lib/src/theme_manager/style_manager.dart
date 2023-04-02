@@ -17,7 +17,7 @@ TextStyle _getTextStyle(
   );
 }
 
-TextStyle gerWhiteTextStyle({
+TextStyle getWhiteTextStyle({
   double fontSize = FontSizeManager.f16,
   FontWeight fontWeight = FontWeightManager.regular,
 }) {
@@ -53,7 +53,6 @@ TextStyle getBlack30TextStyle({
   );
 }
 
-
 TextStyle getBlackTextStyle({
   double fontSize = FontSizeManager.f16,
   FontWeight fontWeight = FontWeightManager.regular,
@@ -65,3 +64,16 @@ TextStyle getBlackTextStyle({
     ColorManager.black,
   );
 }
+
+TextStyle getGrey60TextStyle({
+  double fontSize = FontSizeManager.f14,
+  FontWeight fontWeight = FontWeightManager.regular,
+}) {
+  return _getTextStyle(
+    fontSize,
+    FontFamilyConstant.fontFamily,
+    fontWeight,
+    ColorManager.grey60,
+  );
+}
+
