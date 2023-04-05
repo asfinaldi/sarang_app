@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:sarang_app/src/common_widgets/custom_button_widget.dart';
 import 'package:sarang_app/src/common_widgets/match_button_widget.dart';
 import 'package:sarang_app/src/common_widgets/people_indentity_widget.dart';
+import 'package:sarang_app/src/features/likes_you/data/data_hobby_dummy.dart';
+import 'package:sarang_app/src/features/likes_you/domain/user.dart';
 import 'package:sarang_app/src/theme_manager/asset_image_icon_manager.dart';
 import 'package:sarang_app/src/theme_manager/font_manager.dart';
 import 'package:sarang_app/src/theme_manager/style_manager.dart';
@@ -15,16 +17,19 @@ class PeopleProfileScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final user = ModalRoute.of(context)?.settings.arguments as User;
     return Scaffold(
       body: SingleChildScrollView(
         controller: ScrollController(),
         child: Column(
           children: [
-            const ProfileDetailImageWidget(),
+            ProfileDetailImageWidget(
+              imagePath: user.imagePath,
+            ),
             const SizedBox(
               height: AppSize.s30,
             ),
-            const PeopleIndentifyWidget(),
+            PeopleIndentifyWidget(user: user),
             const SizedBox(
               height: AppSize.s16,
             ),
@@ -36,6 +41,7 @@ class PeopleProfileScreen extends StatelessWidget {
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (context, index) {
+                  final hobby = dataHobbyDummy[index];
                   return Container(
                     width: 120.0,
                     height: 80.0,
@@ -44,15 +50,16 @@ class PeopleProfileScreen extends StatelessWidget {
                     ),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(AppSize.s18),
-                      image: const DecorationImage(
+                      image: DecorationImage(
                         fit: BoxFit.cover,
                         image: AssetImage(
-                            '${AssetImageIconManager.assetPath}/hobby1_image.png'),
+                          hobby,
+                        ),
                       ),
                     ),
                   );
                 },
-                itemCount: 4,
+                itemCount: dataHobbyDummy.length,
               ),
             ),
             const SizedBox(

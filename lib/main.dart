@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:sarang_app/src/features/authentication/presentation/bloc/auth_bloc.dart';
+import 'package:sarang_app/src/features/likes_you/bloc/people_loved/people_loved_bloc.dart';
+
 import 'package:sarang_app/src/theme_manager/asset_image_icon_manager.dart';
 import 'package:sarang_app/src/theme_manager/theme_data_manager.dart';
-import 'package:sarang_app/src/utils/app.dart';
+import 'package:sarang_app/src/app.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+import 'src/features/likes_you/bloc/explore_people/explore_people_bloc.dart';
 
 void main() => runApp(const MyApp());
 
@@ -10,7 +16,19 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const AppScreen();
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => AuthBloc(),
+        ),
+        BlocProvider(
+          create: (context) => ExplorePeopleBloc(),
+        ),
+        BlocProvider(
+          create: (context) => PeopleLovedBloc(),
+        ),
+      ],
+      child: const AppScreen(),
+    );
   }
 }
-

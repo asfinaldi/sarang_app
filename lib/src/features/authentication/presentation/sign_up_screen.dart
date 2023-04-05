@@ -24,9 +24,31 @@ class _SignUpScreenState extends State<SignUpScreen> {
   @override
   void dispose() {
     nameController.clear();
+    nameController.dispose;
     emailController.clear();
+    emailController.dispose();
     passwordController.clear();
+    passwordController.dispose();
     super.dispose();
+  }
+
+  String? validationInput() {
+    if (nameController.text.isEmpty ||
+        emailController.text.isEmpty ||
+        passwordController.text.isEmpty) {
+      return 'Name or email or password can\'t be empty';
+    }
+
+    if (nameController.text.length < 4 ||
+        emailController.text.length < 4 ||
+        passwordController.text.length < 4) {
+      return 'Too short, minimum 4 charakters';
+    }
+
+    if (!emailController.text.contains('@')) {
+      return 'email not valid without @';
+    }
+    return null;
   }
 
   @override
@@ -62,7 +84,24 @@ class _SignUpScreenState extends State<SignUpScreen> {
               ),
               CustomButtonWidget(
                 onTap: () {
-                  Navigator.pushNamed(context, SignUpAgeJobScreen.routeName);
+                  final message = validationInput();
+                  if (message != null) {
+                    ScaffoldMessenger.of(context).hideCurrentSnackBar();
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                        content: Text(message),
+                      ),
+                    );
+                    return;
+                  }
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => SignUpAgeJobScreen(
+                            fullname: nameController.text,
+                            email: emailController.text,
+                            password: passwordController.text),
+                      ));
                 },
                 title: 'Get Started',
               ),

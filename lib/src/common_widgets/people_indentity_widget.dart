@@ -1,4 +1,6 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
+import 'package:sarang_app/src/features/likes_you/domain/user.dart';
 
 import '../theme_manager/font_manager.dart';
 import '../theme_manager/style_manager.dart';
@@ -6,8 +8,10 @@ import '../theme_manager/values_manger.dart';
 
 class PeopleIndentifyWidget extends StatelessWidget {
   const PeopleIndentifyWidget({
-    super.key,
-  });
+    Key? key,
+    required this.user,
+  }) : super(key: key);
+  final User user;
 
   @override
   Widget build(BuildContext context) {
@@ -17,21 +21,21 @@ class PeopleIndentifyWidget extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            'Shyna',
+            user.fullName,
             style: getWhiteTextStyle(
               fontSize: FontSizeManager.f28,
               fontWeight: FontWeightManager.semiBold,
             ),
           ),
           Text(
-            '22, Lawyer',
+            '${user.age}, ${user.occupation}',
             style: getBlackTextStyle(),
           ),
           const SizedBox(
             height: AppMargin.m16,
           ),
           Text(
-            'I love solving problem in terms of finance,business, and any case. With you, we will solve all world problems.',
+            user.description,
             style: getWhiteTextStyle(),
           ),
         ],

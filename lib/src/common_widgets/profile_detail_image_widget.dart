@@ -1,5 +1,9 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
+
 import 'package:sarang_app/src/common_widgets/match_button_widget.dart';
+import 'package:sarang_app/src/features/likes_you/domain/user.dart';
+import 'package:sarang_app/src/features/likes_you/presentation/explore_people_screen.dart';
 
 import '../theme_manager/asset_image_icon_manager.dart';
 import '../theme_manager/font_manager.dart';
@@ -8,8 +12,10 @@ import '../theme_manager/values_manger.dart';
 
 class ProfileDetailImageWidget extends StatelessWidget {
   const ProfileDetailImageWidget({
-    super.key,
-  });
+    Key? key,
+    required this.imagePath,
+  }) : super(key: key);
+  final String imagePath;
 
   @override
   Widget build(BuildContext context) {
@@ -18,11 +24,10 @@ class ProfileDetailImageWidget extends StatelessWidget {
         Container(
           width: double.infinity,
           height: 420.0,
-          decoration: const BoxDecoration(
+          decoration: BoxDecoration(
             image: DecorationImage(
               fit: BoxFit.cover,
-              image: AssetImage(
-                  '${AssetImageIconManager.assetPath}/people_leve1_image.png'),
+              image: AssetImage(imagePath),
             ),
           ),
         ),
@@ -37,7 +42,9 @@ class ProfileDetailImageWidget extends StatelessWidget {
               MatchButtonWidget(
                 dimension: 20.0,
                 iconPath: 'icon_arrow_left.png',
-                onTap: () {},
+                onTap: () {
+                  Navigator.pop(context);
+                },
               ),
               Text(
                 'Lover Profile \n Details',
@@ -50,7 +57,10 @@ class ProfileDetailImageWidget extends StatelessWidget {
               MatchButtonWidget(
                 dimension: 20.0,
                 iconPath: 'icon_close_circle.png',
-                onTap: () {},
+                onTap: () {
+                  Navigator.pushNamedAndRemoveUntil(
+                      context, ExplorePeopleScreen.routeName, (route) => false);
+                },
               ),
             ],
           ),

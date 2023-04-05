@@ -1,14 +1,26 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
+
 import 'package:sarang_app/src/common_widgets/banner_widget.dart';
 import 'package:sarang_app/src/common_widgets/custom_button_widget.dart';
 import 'package:sarang_app/src/common_widgets/custom_text_field_widget.dart';
 import 'package:sarang_app/src/common_widgets/logo_and_tagline_widget.dart';
+import 'package:sarang_app/src/features/authentication/domain/user_account.dart';
 import 'package:sarang_app/src/features/authentication/presentation/sign_up_upload_photo_screen.dart';
 import 'package:sarang_app/src/theme_manager/values_manger.dart';
 
 class SignUpAgeJobScreen extends StatefulWidget {
   static const String routeName = '/sign-up-age-job';
-  const SignUpAgeJobScreen({super.key});
+  const SignUpAgeJobScreen({
+    Key? key,
+    required this.fullname,
+    required this.email,
+    required this.password,
+  }) : super(key: key);
+
+  final String fullname;
+  final String email;
+  final String password;
 
   @override
   State<SignUpAgeJobScreen> createState() => _SignUpAgeJobScreenState();
@@ -22,7 +34,17 @@ class _SignUpAgeJobScreenState extends State<SignUpAgeJobScreen> {
   void dispose() {
     jobController.clear();
     ageController.clear();
+    jobController.dispose();
+    ageController.dispose();
     super.dispose();
+  }
+
+  String? validationInput() {
+    if (jobController.text.isEmpty || ageController.text.isEmpty) {
+      return 'Occupation  or job can\'t be empty';
+    }
+
+    return null;
   }
 
   @override
@@ -45,12 +67,33 @@ class _SignUpAgeJobScreenState extends State<SignUpAgeJobScreen> {
                   labelName: 'Age',
                   hintext: 'Write your age?',
                   controller: ageController),
-              SizedBox(
+              const SizedBox(
                 height: 117.0,
               ),
               CustomButtonWidget(
                 onTap: () {
-                  Navigator.pushNamed(context, SignUpUploadPhotoScreen.routeName);
+                  final message = validationInput();
+                  if (message != null) {
+                    ScaffoldMessenger.of(context).hideCurrentSnackBar();
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                        content: Text(message),
+                      ),
+                    );
+                    return;
+                  }
+
+                  UserAccount userAccount = UserAccount(
+                      fullName: widget.fullname,
+                      email: widget.email,
+                      password: widget.password,
+                      occupation: jobController.text,
+                      age: ageController.text);
+                  Navigator.pushNamed(
+                    context,
+                    SignUpUploadPhotoScreen.routeName,
+                    arguments: userAccount,
+                  );
                 },
                 title: 'Continue Sign Up',
               )
