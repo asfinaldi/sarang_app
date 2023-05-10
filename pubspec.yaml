@@ -29,12 +29,14 @@ environment:
 # versions available, run `flutter pub outdated`.
 dependencies:
   appinio_swiper: ^1.1.1
+  bloc: ^8.1.1
   cupertino_icons: ^1.0.2
   flutter:
     sdk: flutter
   flutter_bloc: ^8.1.2
   google_fonts: ^4.0.3
   image_picker: ^0.8.7+1
+  meta: ^1.9.1
   shared_preferences: ^2.1.0
 
 dev_dependencies:

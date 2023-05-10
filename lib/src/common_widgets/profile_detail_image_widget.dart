@@ -1,11 +1,7 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
-
 import 'package:sarang_app/src/common_widgets/match_button_widget.dart';
-import 'package:sarang_app/src/features/likes_you/domain/user.dart';
 import 'package:sarang_app/src/features/likes_you/presentation/explore_people_screen.dart';
-
-import '../theme_manager/asset_image_icon_manager.dart';
 import '../theme_manager/font_manager.dart';
 import '../theme_manager/style_manager.dart';
 import '../theme_manager/values_manger.dart';

@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sarang_app/src/common_widgets/explore_people_app_bar_widget.dart';
 import 'package:sarang_app/src/common_widgets/explore_people_button_widget.dart';
-import 'package:sarang_app/src/common_widgets/match_button_widget.dart';
 import 'package:sarang_app/src/common_widgets/match_card_widget.dart';
 import 'package:sarang_app/src/features/authentication/data/data_user_account_local.dart';
 import 'package:sarang_app/src/features/authentication/domain/user_account.dart';
@@ -99,7 +98,6 @@ class _ExplorePeopleScreenState extends State<ExplorePeopleScreen> {
                                       .read<PeopleLovedBloc>()
                                       .add(AddPeopleLoved(user: users[index]));
                                 }
-                                ;
                               }
                             },
                             onEnd: () {

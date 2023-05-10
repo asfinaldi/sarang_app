@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:sarang_app/src/features/authentication/data/data_user_account_local.dart';
-import 'package:sarang_app/src/features/authentication/presentation/sign_uo_age_job_screen.dart';
 import 'package:sarang_app/src/features/authentication/presentation/sign_up_upload_photo_screen.dart';
 import 'package:sarang_app/src/features/likes_you/presentation/explore_people_screen.dart';
 import 'package:sarang_app/src/features/likes_you/presentation/people_loved_screen.dart';
@@ -37,6 +36,7 @@ class _AppScreenState extends State<AppScreen> {
     return MaterialApp(
       title: 'Material App',
       theme: getApplicationThemeData(),
+      debugShowCheckedModeBanner: false,
       home: isRegister ? const ExplorePeopleScreen() : const SignUpScreen(),
       routes: {
         SignUpScreen.routeName: (context) => const SignUpScreen(),

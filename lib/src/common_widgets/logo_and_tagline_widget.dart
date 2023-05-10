@@ -10,9 +10,14 @@ class LogoAndTagLineWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        LogoWidget(),
-        SizedBox(height: AppSize.s6,),
-        Text('Find your perfect love', style: getWhiteTextStyle(),),
+        const LogoWidget(),
+        const SizedBox(
+          height: AppSize.s6,
+        ),
+        Text(
+          'Find your perfect love',
+          style: getWhiteTextStyle(),
+        ),
       ],
     );
   }

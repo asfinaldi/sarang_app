@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:sarang_app/src/common_widgets/custom_button_widget.dart';
-import 'package:sarang_app/src/common_widgets/match_button_widget.dart';
+
 import 'package:sarang_app/src/common_widgets/people_indentity_widget.dart';
 import 'package:sarang_app/src/features/likes_you/data/data_hobby_dummy.dart';
 import 'package:sarang_app/src/features/likes_you/domain/user.dart';
-import 'package:sarang_app/src/theme_manager/asset_image_icon_manager.dart';
-import 'package:sarang_app/src/theme_manager/font_manager.dart';
-import 'package:sarang_app/src/theme_manager/style_manager.dart';
+
 import 'package:sarang_app/src/theme_manager/values_manger.dart';
 
 import '../../../common_widgets/profile_detail_image_widget.dart';

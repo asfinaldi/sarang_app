@@ -3,8 +3,6 @@ import 'package:sarang_app/src/common_widgets/banner_widget.dart';
 import 'package:sarang_app/src/common_widgets/custom_button_widget.dart';
 import 'package:sarang_app/src/common_widgets/custom_text_button.dart';
 import 'package:sarang_app/src/common_widgets/custom_text_field_widget.dart';
-import 'package:sarang_app/src/common_widgets/hero_widget.dart';
-import 'package:sarang_app/src/common_widgets/logo_and_tagline_widget.dart';
 import 'package:sarang_app/src/features/authentication/presentation/sign_uo_age_job_screen.dart';
 import 'package:sarang_app/src/theme_manager/values_manger.dart';
 
@@ -79,7 +77,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 controller: passwordController,
                 isObsecure: true,
               ),
-              SizedBox(
+              const SizedBox(
                 height: AppSize.s16,
               ),
               CustomButtonWidget(
@@ -105,7 +103,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 },
                 title: 'Get Started',
               ),
-              SizedBox(
+              const SizedBox(
                 height: AppSize.s20,
               ),
               CustomTextButton(

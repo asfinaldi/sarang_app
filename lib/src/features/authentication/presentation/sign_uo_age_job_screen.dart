@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:sarang_app/src/common_widgets/banner_widget.dart';
 import 'package:sarang_app/src/common_widgets/custom_button_widget.dart';
 import 'package:sarang_app/src/common_widgets/custom_text_field_widget.dart';
-import 'package:sarang_app/src/common_widgets/logo_and_tagline_widget.dart';
 import 'package:sarang_app/src/features/authentication/domain/user_account.dart';
 import 'package:sarang_app/src/features/authentication/presentation/sign_up_upload_photo_screen.dart';
 import 'package:sarang_app/src/theme_manager/values_manger.dart';
@@ -68,7 +67,7 @@ class _SignUpAgeJobScreenState extends State<SignUpAgeJobScreen> {
                   hintext: 'Write your age?',
                   controller: ageController),
               const SizedBox(
-                height: 117.0,
+                height: 60.0,
               ),
               CustomButtonWidget(
                 onTap: () {

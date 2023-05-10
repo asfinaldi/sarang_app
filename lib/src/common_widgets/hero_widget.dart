@@ -15,7 +15,7 @@ class HeroWidget extends StatelessWidget {
       ),
       decoration:  BoxDecoration(
         borderRadius: BorderRadius.circular(AppSize.s18),
-        image: DecorationImage(
+        image: const DecorationImage(
           image:
               AssetImage('${AssetImageIconManager.assetPath}/hero_image.png'),
           fit: BoxFit.cover,

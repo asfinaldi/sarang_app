@@ -26,7 +26,7 @@ class CustomTextFieldWidget extends StatelessWidget {
           labelName,
           style: getWhiteTextStyle(),
         ),
-        SizedBox(
+        const SizedBox(
           height: AppSize.s8,
         ),
         TextField(
@@ -34,7 +34,7 @@ class CustomTextFieldWidget extends StatelessWidget {
           obscureText: isObsecure,
           style: getWhiteTextStyle(),
           decoration: InputDecoration(
-            contentPadding: EdgeInsets.symmetric(
+            contentPadding: const EdgeInsets.symmetric(
               vertical: AppPadding.p15,
               horizontal: AppPadding.p30,
             ),
@@ -46,7 +46,7 @@ class CustomTextFieldWidget extends StatelessWidget {
                 borderRadius: BorderRadius.circular(AppSize.s50)),
           ),
         ),
-        SizedBox(
+        const SizedBox(
           height: AppSize.s14,
         )
       ],

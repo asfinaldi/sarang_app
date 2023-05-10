@@ -1,6 +1,5 @@
 import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
-import 'package:sarang_app/src/features/likes_you/bloc/explore_people/explore_people_bloc.dart';
 import 'package:sarang_app/src/features/likes_you/domain/user.dart';
 
 import '../../data/data_match_dummy.dart';
@@ -13,7 +12,7 @@ class PeopleLovedBloc extends Bloc<PeopleLovedEvent, PeopleLovedState> {
     on<OnPeopleLovedEventCalled>(
       (event, emit) async {
         emit(PeopleLovedLoading());
-        await Future.delayed(Duration(seconds: 1));
+        await Future.delayed(const Duration(seconds: 1));
         emit(PeopleLovedLoaded(userMatch: dataMatchDummy));
       },
     );

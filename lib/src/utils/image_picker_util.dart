@@ -7,13 +7,13 @@ enum GetImageFrom {
 
 class ImagePickerUtil {
   static Future<XFile?> getImage(GetImageFrom source) async {
-    final PickedFile = await ImagePicker().pickImage(
+    final pickedFile = await ImagePicker().pickImage(
       source: source == GetImageFrom.camera
           ? ImageSource.camera
           : ImageSource.gallery,
           maxWidth:  1800,
           maxHeight: 1800,
     );
-    return PickedFile;
+    return pickedFile;
   }
 }

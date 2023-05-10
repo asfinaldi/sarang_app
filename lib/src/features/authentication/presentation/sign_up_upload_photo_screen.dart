@@ -101,7 +101,7 @@ class _SignUpUploadPhotoScreenState extends State<SignUpUploadPhotoScreen> {
                   height: 53.0,
                 ),
                 Text(
-                  '${userAccount.fullName}',
+                  userAccount.fullName,
                   style: getWhiteTextStyle(
                     fontSize: FontSizeManager.f22,
                     fontWeight: FontWeightManager.semiBold,
@@ -115,7 +115,7 @@ class _SignUpUploadPhotoScreenState extends State<SignUpUploadPhotoScreen> {
                   style: getBlack60TextStyle(),
                 ),
                 const SizedBox(
-                  height: 240.0,
+                  height: 120.0,
                 ),
                 BlocBuilder<AuthBloc, AuthState>(
                   builder: (context, state) {
@@ -128,7 +128,7 @@ class _SignUpUploadPhotoScreenState extends State<SignUpUploadPhotoScreen> {
                         if (image == null){
                                               ScaffoldMessenger.of(context).hideCurrentSnackBar();
                           ScaffoldMessenger.of(context).showSnackBar(
-                            SnackBar(
+                            const SnackBar(
                               content: Text('No image update'),
                             ),
                           );

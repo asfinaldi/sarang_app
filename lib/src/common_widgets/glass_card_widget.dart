@@ -19,17 +19,17 @@ class GlassCardWidget extends StatelessWidget {
     return Container(
       width: double.infinity,
       height: 80,
-      padding: EdgeInsets.symmetric(
+      padding: const EdgeInsets.symmetric(
         vertical: AppPadding.p15,
         horizontal: AppMargin.m24,
       ),
-      margin: EdgeInsets.symmetric(
+      margin: const EdgeInsets.symmetric(
         vertical: AppMargin.m26,
         horizontal: AppMargin.m30,
       ),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(33.0),
-        image: DecorationImage(
+        image: const DecorationImage(
           fit: BoxFit.cover,
           image: AssetImage(
               '${AssetImageIconManager.assetPath}/glass_card_image.png'),
@@ -60,7 +60,7 @@ class GlassCardWidget extends StatelessWidget {
           Container(
             width: 50,
             height: 50,
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
                 image: DecorationImage(
                     image: AssetImage(
                         '${AssetImageIconManager.assetPath}/icon_profile.png'))),
